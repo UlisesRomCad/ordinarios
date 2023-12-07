@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordinario unidad 2</title>
+    <style>
+        body {
+            background-color: black;
+            margin: 0; 
+            display: flex;
+        }
+
+        canvas {
+            background-color: white;
+            margin-left: 30px; 
+        }
+
+        .optionSection {
+            background-color: white;
+            height: 900px; 
+            width: 300px; 
+        }
+
+        .buttons{
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .red{
+            background-color: red;
+            height: 30px;
+            width: 30px;
+            margin: 0px 3px;
+        }
+
+        .red:hover{
+            background-color: darkred;
+        }
+
+        .blue{
+            background-color: blue;
+            height: 30px;
+            width: 30px;
+            margin: 0px 3px;
+        }
+
+        .blue:hover{
+            background-color: darkblue;
+        }
+
+        .green{
+            background-color: green;
+            height: 30px;
+            width: 30px;
+            margin: 0px 3px;
+        }
+
+        .green:hover{
+            background-color: darkgreen;
+        }
+
+        .yellow{
+            background-color: yellow;
+            height: 30px;
+            width: 30px;
+            margin: 0px 3px;
+        }
+
+        .yellow:hover{
+            background-color: #ebbc21;
+        }
+
+        .black{
+            background-color: black;
+            height: 30px;
+            width: 30px;
+            margin: 0px 3px;
+        }
+
+        .black:hover{
+            background-color: #383838;
+        }
+    </style>
+</head>
+<body>
+    <div class="optionSection">
+        <div class="buttons">
+            <input type="button" class="red" onclick="changeColor('red')">
+            <input type="button" class="blue" onclick="changeColor('blue')">
+            <input type="button" class="green" onclick="changeColor('green')">
+            <input type="button" class="yellow" onclick="changeColor('yellow')">
+            <input type="button" class="black" onclick="changeColor('black')">
+        </div>
+    </div>
+    <canvas width="1500" height="900" id="myCanvas"></canvas>
+    <script>
+        var color = "white";
+
+        function changeColor(newColor){
+            color = newColor;
+        }
+
+        var canvas = document.getElementById('myCanvas');
+        var ctx = canvas.getContext('2d');
+
+        canvas.addEventListener("mousedown", (e) => {
+            var squareSize = 100;
+            ctx.beginPath();
+            ctx.fillStyle = color;
+            ctx.fillRect(e.layerX - 200/2, e.layerY - 200, squareSize, squareSize);
+            ctx.closePath();
+        });
+    </script>
+</body>
+</html>
